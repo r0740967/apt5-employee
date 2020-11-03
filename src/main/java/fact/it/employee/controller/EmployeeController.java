@@ -30,9 +30,9 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/employees/{code}")
-    public Employee getByCode(@PathVariable String code){
-        return employeeRepository.findEmployeeByCode(code);
+    @GetMapping("/employees/{code}/{hotelCode}")
+    public Employee getByCode(@PathVariable String code, @PathVariable String hotelCode){
+        return employeeRepository.findEmployeeByCodeAndHotelCode(code, hotelCode);
     }
 
     @PostMapping("/employees")
@@ -42,7 +42,7 @@ public class EmployeeController {
 
     @PutMapping("/employees")
     public Employee updateEmployee(@RequestBody Employee employeeToUpdate){
-        Employee retrievedEmployee = employeeRepository.findEmployeeByCode(employeeToUpdate.getCode());
+        Employee retrievedEmployee = employeeRepository.findEmployeeByCodeAndHotelCode(employeeToUpdate.getCode(), employeeToUpdate.getHotelCode());
         retrievedEmployee.setCode(employeeToUpdate.getCode());
         retrievedEmployee.setFirstName(employeeToUpdate.getFirstName());
         retrievedEmployee.setLastName(employeeToUpdate.getLastName());
@@ -53,9 +53,9 @@ public class EmployeeController {
         return retrievedEmployee;
     }
 
-    @DeleteMapping("/employees/{code}")
-    public ResponseEntity deleteEmployee(@PathVariable String code){
-        Employee employee = employeeRepository.findEmployeeByCode(code);
+    @DeleteMapping("/employees/{code}/{hotelCode}")
+    public ResponseEntity deleteEmployee(@PathVariable String code, @PathVariable String hotelCode){
+        Employee employee = employeeRepository.findEmployeeByCodeAndHotelCode(code, hotelCode);
         if (employee != null){
             employeeRepository.delete(employee);
             return ResponseEntity.ok().build();

@@ -1,12 +1,14 @@
 package fact.it.employee.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "employees")
 public class Employee {
     @Id
     private String id;
+    @Indexed(unique = true)
     private String code;
     private String hotelCode;
     private String firstName;
