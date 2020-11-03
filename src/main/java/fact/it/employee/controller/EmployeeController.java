@@ -30,9 +30,9 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/employees/{code}/{hotelCode}")
-    public Employee getByCode(@PathVariable String code, @PathVariable String hotelCode){
-        return employeeRepository.findEmployeeByCodeAndHotelCode(code, hotelCode);
+    @GetMapping("/employees/{employeeCode}/{hotelCode}")
+    public Employee getByCode(@PathVariable String employeeCode, @PathVariable String hotelCode){
+        return employeeRepository.findEmployeeByEmployeeCodeAndHotelCode(employeeCode, hotelCode);
     }
 
     @PostMapping("/employees")
@@ -42,7 +42,7 @@ public class EmployeeController {
 
     @PutMapping("/employees")
     public Employee updateEmployee(@RequestBody Employee employeeToUpdate){
-        Employee retrievedEmployee = employeeRepository.findEmployeeByCodeAndHotelCode(employeeToUpdate.getEmployeeCode(), employeeToUpdate.getHotelCode());
+        Employee retrievedEmployee = employeeRepository.findEmployeeByEmployeeCodeAndHotelCode(employeeToUpdate.getEmployeeCode(), employeeToUpdate.getHotelCode());
         retrievedEmployee.setEmployeeCode(employeeToUpdate.getEmployeeCode());
         retrievedEmployee.setFirstName(employeeToUpdate.getFirstName());
         retrievedEmployee.setLastName(employeeToUpdate.getLastName());
@@ -53,9 +53,9 @@ public class EmployeeController {
         return retrievedEmployee;
     }
 
-    @DeleteMapping("/employees/{code}/{hotelCode}")
-    public ResponseEntity deleteEmployee(@PathVariable String code, @PathVariable String hotelCode){
-        Employee employee = employeeRepository.findEmployeeByCodeAndHotelCode(code, hotelCode);
+    @DeleteMapping("/employees/{employeeCode}/{hotelCode}")
+    public ResponseEntity deleteEmployee(@PathVariable String employeeCode, @PathVariable String hotelCode){
+        Employee employee = employeeRepository.findEmployeeByEmployeeCodeAndHotelCode(employeeCode, hotelCode);
         if (employee != null){
             employeeRepository.delete(employee);
             return ResponseEntity.ok().build();

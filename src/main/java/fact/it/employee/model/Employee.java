@@ -18,8 +18,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String code, String hotelCode, String firstName, String lastName, String function) {
-        this.employeeCode = code;
+    public Employee(String employeeCode, String hotelCode, String firstName, String lastName, String function) {
+        this.employeeCode = employeeCode;
         this.hotelCode = hotelCode;
         this.firstName = firstName;
         this.lastName = lastName;
