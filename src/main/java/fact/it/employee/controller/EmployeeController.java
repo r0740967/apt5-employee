@@ -42,8 +42,8 @@ public class EmployeeController {
 
     @PutMapping("/employees")
     public Employee updateEmployee(@RequestBody Employee employeeToUpdate){
-        Employee retrievedEmployee = employeeRepository.findEmployeeByCodeAndHotelCode(employeeToUpdate.getCode(), employeeToUpdate.getHotelCode());
-        retrievedEmployee.setCode(employeeToUpdate.getCode());
+        Employee retrievedEmployee = employeeRepository.findEmployeeByCodeAndHotelCode(employeeToUpdate.getEmployeeCode(), employeeToUpdate.getHotelCode());
+        retrievedEmployee.setEmployeeCode(employeeToUpdate.getEmployeeCode());
         retrievedEmployee.setFirstName(employeeToUpdate.getFirstName());
         retrievedEmployee.setLastName(employeeToUpdate.getLastName());
         retrievedEmployee.setHotelCode(employeeToUpdate.getHotelCode());

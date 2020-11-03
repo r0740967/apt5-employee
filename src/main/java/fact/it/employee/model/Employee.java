@@ -9,7 +9,7 @@ public class Employee {
     @Id
     private String id;
     @Indexed(unique = true)
-    private String code;
+    private String employeeCode;
     private String hotelCode;
     private String firstName;
     private String lastName;
@@ -19,7 +19,7 @@ public class Employee {
     }
 
     public Employee(String code, String hotelCode, String firstName, String lastName, String function) {
-        this.code = code;
+        this.employeeCode = code;
         this.hotelCode = hotelCode;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,12 +34,12 @@ public class Employee {
         this.id = id;
     }*/
 
-    public String getCode() {
-        return code;
+    public String getEmployeeCode() {
+        return employeeCode;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setEmployeeCode(String employeeCode) {
+        this.employeeCode = employeeCode;
     }
 
     public String getHotelCode() {
