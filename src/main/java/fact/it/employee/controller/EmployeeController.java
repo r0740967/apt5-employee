@@ -35,6 +35,11 @@ public class EmployeeController {
         return employeeRepository.findEmployeeByEmployeeCodeAndHotelCode(employeeCode, hotelCode);
     }
 
+    @GetMapping("/employees/{hotelCode}")
+    public List<Employee> getByHotelCode(@PathVariable String hotelCode){
+        return employeeRepository.findEmployeeByHotelCode(hotelCode);
+    }
+
     @PostMapping("/employees")
     public void addEmployee(@RequestBody Employee newEmployee){
         employeeRepository.save(newEmployee);

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends MongoRepository <Employee, String> {
     Employee findEmployeeByEmployeeCodeAndHotelCode(String employeeCode, String hotelCode);
+    List<Employee> findEmployeeByHotelCode(String hotelCode);
 }
