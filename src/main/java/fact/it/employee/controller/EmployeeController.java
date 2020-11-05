@@ -20,7 +20,7 @@ public class EmployeeController {
         if (employeeRepository.count() == 0){
             employeeRepository.save(new Employee("E01", "H01", "Emp", "Loyee", "Barman"));
             employeeRepository.save(new Employee("E02", "H02", "Emp", "Loyee", "Kuisvrouw"));
-            employeeRepository.save(new Employee("E03", "H03", "Emp", "Loyee", "Manager"));
+            employeeRepository.save(new Employee("E03", "H02", "Emp", "Loyee", "Manager"));
         }
         System.out.println("Aantal werknemers: " + employeeRepository.count());
     }
