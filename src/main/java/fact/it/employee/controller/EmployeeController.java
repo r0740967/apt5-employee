@@ -3,6 +3,7 @@ package fact.it.employee.controller;
 import fact.it.employee.model.Employee;
 import fact.it.employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +41,10 @@ public class EmployeeController {
         return employeeRepository.findEmployeeByHotelCode(hotelCode);
     }
 
-    @PostMapping("/employees")
-    public void addEmployee(@RequestBody Employee newEmployee){
+    @PostMapping(value = "/employees")
+    public Employee addEmployee(@RequestBody Employee newEmployee){
         employeeRepository.save(newEmployee);
+        return newEmployee;
     }
 
     @PutMapping("/employees")
